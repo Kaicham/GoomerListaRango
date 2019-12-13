@@ -1,6 +1,9 @@
 const express =  require('express');
 const server = express();
 
+const Restaurante = require('./model/restaurante');
+const Produto = require('./model/produto');
+
 const port = 8000
 
 //Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
@@ -21,11 +24,8 @@ connection.once('open', () => {
 
 //Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
 
+server.use(express.json())
 
-server.get('/', (req, res) => {
-    console.log("Desafio iniciado!")
-    res.send("Desafio iniciado!")
-})
 
 server.listen(port, () => {
     console.log("Server iniciado no port: ", port)
