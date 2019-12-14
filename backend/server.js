@@ -1,12 +1,12 @@
 const express =  require('express');
 const server = express();
 
-const Restaurante = require('./model/restaurante');
-const Produto = require('./model/produto');
+//Rotas 
+const restauranteRoutes = require('./routes/restaurante')
 
 const port = 8000
 
-//Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
+//TODO: Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
 const mongoose = require('mongoose')
 const dataBaseURI = "mongodb+srv://admin:admin@cluster0-k77ap.mongodb.net/test?retryWrites=true&w=majority"
 
@@ -22,10 +22,11 @@ connection.once('open', () => {
     console.log('MongoDB conectado com sucesso!')
 })
 
-//Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
+//TODO: Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
 
 server.use(express.json())
 
+server.use('/restaurante', restauranteRoutes)
 
 server.listen(port, () => {
     console.log("Server iniciado no port: ", port)
