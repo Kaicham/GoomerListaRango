@@ -5,26 +5,33 @@ module.exports = {
     //Função para criar restaurante
     async criarRestaurante(req, res){
 
-        //TODO: fazer o tratamento de salvar imagem e servidor de imagem
+        const { filename } = req.file;
+
         let nome = req.body.nome;
-        let imagem = req.body.imagem;
-        let endereco = req.body.endereco;
+        let imagem = filename;
+        let {logradouro, numero, bairro, cidade, estado, complemento} = req.body;
     
         const novoRestautante = new Restaurante({
             nome,
             imagem,
-            endereco
+            endereco: {
+                logradouro,
+                numero,
+                bairro,
+                cidade,
+                estado,
+                complemento
+            }
         })
     
         await novoRestautante.save()
         .then( () => res.status(200).json('Restaurante criado com sucesso!'))
-        .catch(err => res.status(500).json('Error: '     + err))    
+        .catch(err => res.status(500).json('Error: ' + err))    
     },
 
 
     //Função para listar restaurantes
     async listarRestaurantes(req, res) {
-
         await Restaurante.find({})
         .then( restaurantes => res.status(200).json({total: restaurantes.length, restaurantes: restaurantes}))
         .catch( err => res.status(500).json("Error : " + err) )
@@ -48,7 +55,6 @@ module.exports = {
         .then(restaurante => {
     
             restaurante.nome = req.body.nome;
-            restaurante.imagem = req.body.imagem;
             restaurante.endereco = req.body.endereco;
             restaurante.updated = Date.now();
     

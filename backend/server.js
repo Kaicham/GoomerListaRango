@@ -1,4 +1,5 @@
 const express =  require('express');
+const path = require('path');
 const server = express();
 
 //Rotas 
@@ -26,7 +27,12 @@ connection.once('open', () => {
 
 server.use(express.json())
 
+//Rostar dos restaurantes
 server.use('/restaurante', restauranteRoutes)
+
+
+//Servidor de arquivos estáticos
+server.use('/arquivos', express.static(path.resolve(__dirname, 'uploads')))
 
 server.listen(port, () => {
     console.log("Server iniciado no port: ", port)
