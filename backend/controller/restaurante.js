@@ -67,6 +67,25 @@ module.exports = {
     
     },
 
+    //Função para atualizar a imagem de um restaurante
+    async atualizarImagemRestaurante(req, res) {
+
+        const { filename } = req.file;        
+        let restauranteID = req.params.id;
+
+        await Restaurante.findById(restauranteID)
+        .then( restaurante => {
+
+            restaurante.imagem = filename;
+            restaurante.save()
+            .then( () => res.status(200).json('Restaurante atualizado com sucesso!'))
+            .catch(err => res.status(500).json('Error: '+ err))
+
+        })
+        .catch(err => res.status(500).json('Error: '+ err))
+
+    },
+
     //Função para excluir um restaurante
     async excluirRestaurante(req, res) {
 

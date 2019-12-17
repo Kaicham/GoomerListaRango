@@ -19,6 +19,9 @@ rotas.get('/listar/:id', restauranteContoller.listartDadosRestaurante)
 //Alterando dados de um restaurante
 rotas.put('/atualizar/:id', restauranteContoller.atualizarRestautante)
 
+//Alterando imagem de um restaurante 
+rotas.put('/atualizar-imagem/:id', upload.single('imagem'), restauranteContoller.atualizarImagemRestaurante)
+
 //Excluindo o restaurante
 rotas.delete('/excluir/:id', restauranteContoller.excluirRestaurante)
 

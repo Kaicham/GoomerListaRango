@@ -60,6 +60,25 @@ module.exports = {
         .catch(err => res.status(500).json('Error: '+ err))
     
     },
+    
+    //Função para atualizar a imagem de um produto
+    async atualizarImagemProduto(req, res) {
+
+        const { filename } = req.file;        
+        let produtoID = req.params.id;
+
+        await Produto.findById(produtoID)
+        .then( produto => {
+
+            produto.imagem = filename;
+            produto.save()
+            .then( () => res.status(200).json('Produto atualizado com sucesso!'))
+            .catch(err => res.status(500).json('Error: '+ err))
+
+        })
+        .catch(err => res.status(500).json('Error: '+ err))
+
+    },
 
     //Função para excluir um produto
     async excluirProduto(req, res) {
