@@ -158,14 +158,14 @@ Utiliza-se o método `PUT` no endpoint `/restaurantes/atualizar/{id}` passando c
 
 ```json
 {
-    "nome": string,
+    "nome": "string",
     "endereco": {
-        "logradouro": string,
-        "numero": int,
-        "bairro": string,
-        "cidade": string,
-        "estado":string,
-        "complemento":string
+        "logradouro": "string",
+        "numero": "int",
+        "bairro": "string",
+        "cidade": "string",
+        "estado":"string",
+        "complemento":"string"
     }
 }
 ```
@@ -347,13 +347,13 @@ Utiliza-se o método `PUT` no endpoint `/produtos/atualizar/{id}` passando como 
 
 ```json
 {
-    "nome": string,
-    "preco": double,
-    "categoria": string,
-    "promocao": bool,
+    "nome": "string",
+    "preco": "double",
+    "categoria": "string",
+    "promocao": "bool",
     "infoPromocao": {
-        "descricao": string,
-        "precoPromocional": double
+        "descricao": "string",
+        "precoPromocional": "double"
     }
 }
 ```
@@ -453,19 +453,19 @@ Para acessar as imagens salvas basta utilizar um método `GET` no endpoint `/arq
 
 ```json
 {
-    "_id":    ObjectId,
-    "nome":   String,
-    "imagem": String, 
+    "_id":    "ObjectId",
+    "nome":   "String",
+    "imagem": "String", 
     "endereco": {
-        "logradouro":  String, 
-        "numero":      Number, 
-        "bairro":      String, 
-        "cidade":      String, 
-        "estado":      String,
-        "complemento": String
+        "logradouro":  "String", 
+        "numero":      "Number", 
+        "bairro":      "String", 
+        "cidade":      "String", 
+        "estado":      "String",
+        "complemento": 'String"
     },
-    "created": Date,
-    "updated": Date
+    "created": "Date",
+    "updated": "Date"
 }
 ```
 
@@ -473,19 +473,19 @@ Para acessar as imagens salvas basta utilizar um método `GET` no endpoint `/arq
 
 ```json
 {
-    "_id":           ObjectId,
-    "restauranteID":  ObjectId,
-    "nome":           String,
-    "imagem":         String,
-    "preco":          Number,
-    "categoria":      String,
-    "promocao":       Boolean,
+    "_id":            "ObjectId,
+    "restauranteID":  "ObjectId",
+    "nome":           "String",
+    "imagem":         "String",
+    "preco":          "Number",
+    "categoria":      "String",
+    "promocao":       "Boolean",
     "infoPromocao": {
-        "descricao": String,
-        "precoPromocional": Number
+        "descricao":        "String",
+        "precoPromocional": "Number"
     },
-    "created": Date,
-    "updated": Date
+    "created": "Date",
+    "updated": "Date"
 ```
 }
 
