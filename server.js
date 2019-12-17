@@ -4,8 +4,8 @@ const database = require('./config/database');
 const server = express();
 
 //Rotas 
-const restauranteRoutes = require('./routes/restaurante')
-const produtosRoutes = require('./routes/produto')
+const restauranteRoutes = require('./src/routes/restaurante')
+const produtosRoutes = require('./src/routes/produto')
 
 //Porta de saida do servidor
 const port = 8000
