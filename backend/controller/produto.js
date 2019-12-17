@@ -38,7 +38,7 @@ module.exports = {
         .catch( err => res.status(500).json("Error : " + err) )
     },
 
-    //Função para aualizar restaurante
+    //Função para atualizar produto
     async atualizarProduto(req, res) {
 
         let produtoID = req.params.id;

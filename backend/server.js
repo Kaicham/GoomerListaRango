@@ -1,34 +1,22 @@
 const express =  require('express');
 const path = require('path');
+const database = require('./config/database');
 const server = express();
 
 //Rotas 
 const restauranteRoutes = require('./routes/restaurante')
 const produtosRoutes = require('./routes/produto')
 
+//Porta de saida do servidor
 const port = 8000
 
-//TODO: Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
-const mongoose = require('mongoose')
-const dataBaseURI = "mongodb+srv://admin:admin@cluster0-k77ap.mongodb.net/test?retryWrites=true&w=majority"
+//Connecetando ao banco de dados
+database.connect()
 
-mongoose.connect(dataBaseURI, { useNewUrlParser: true, useUnifiedTopology: true }, error => {
-    if(error){
-        console.log(error)
-        
-    }
-})
-
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log('MongoDB conectado com sucesso!')
-})
-
-//TODO: Connectando ao banco de dados - refatorar e separar. Utilizar função assincrona
-
+//Habilitando o uso de json como resposta no servidor
 server.use(express.json())
 
-//Rostar dos restaurantes
+//Rotas dos restaurantes
 server.use('/restaurantes', restauranteRoutes)
 
 //Rotas dos produtos
