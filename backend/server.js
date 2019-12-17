@@ -4,6 +4,7 @@ const server = express();
 
 //Rotas 
 const restauranteRoutes = require('./routes/restaurante')
+const produtosRoutes = require('./routes/produto')
 
 const port = 8000
 
@@ -28,8 +29,10 @@ connection.once('open', () => {
 server.use(express.json())
 
 //Rostar dos restaurantes
-server.use('/restaurante', restauranteRoutes)
+server.use('/restaurantes', restauranteRoutes)
 
+//Rotas dos produtos
+server.use('/produtos', produtosRoutes)
 
 //Servidor de arquivos estáticos
 server.use('/arquivos', express.static(path.resolve(__dirname, 'uploads')))

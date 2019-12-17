@@ -33,7 +33,7 @@ module.exports = {
     //Função para listar restaurantes
     async listarRestaurantes(req, res) {
         await Restaurante.find({})
-        .then( restaurantes => res.status(200).json({total: restaurantes.length, restaurantes: restaurantes}))
+        .then( restaurantes => res.status(200).json({total: restaurantes.length, restaurantes}))
         .catch( err => res.status(500).json("Error : " + err) )
     },
 
