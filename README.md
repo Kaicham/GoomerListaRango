@@ -462,7 +462,7 @@ Para acessar as imagens salvas basta utilizar um método `GET` no endpoint `/arq
         "bairro":      "String", 
         "cidade":      "String", 
         "estado":      "String",
-        "complemento": 'String"
+        "complemento": "String"
     },
     "created": "Date",
     "updated": "Date"
@@ -473,7 +473,7 @@ Para acessar as imagens salvas basta utilizar um método `GET` no endpoint `/arq
 
 ```json
 {
-    "_id":            "ObjectId,
+    "_id":            "ObjectId",
     "restauranteID":  "ObjectId",
     "nome":           "String",
     "imagem":         "String",
